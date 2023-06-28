@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css') }}"> 
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+	<title>Add Student Details</title>
+<style>
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #F5EFE7;
+	font-family: "Courier New", Courier, monospace;
+  }
+h4{
+  margin-top: 70px;
+  margin-bottom: 20px;
+}
+
+label{
+  margin: 10px;
+}
+
+.container{
+  padding-left: 40px;
+}
+
+button{
+  background-color: white;
+  width: 150px;
+  height: 30px;
+  border: 1px solid #D8C4B6;
+  border-radius: 10px;
+}
+
+</style>	
+</head>
+<body>
+<div class="container">
+  
+  {% if status=="error" %}
+      <div class="alert alert-danger alert-dismissible">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Warning!</strong> This student already exist.
+  </div>
+  {% elif status=="no-data" %}
+      <div class="alert alert-danger alert-dismissible">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Warning!</strong> Please enter a student number.
+  </div>
+    {% elif status=="ok"%}
+      <div class="alert alert-success">
+  <strong>Success!</strong> Student has been added.
+</div>
+    {% endif %}
+
+    <h4>ADD STUDENT</h4>
+	<div class="row">
+    <div class="col-6">
+      <form action="/add_student" method="POST">
+  <div class="form-group">
+    <label for="student_number">Student number</label>
+    <input type="text" class="form-control" id="student_number" name="student_number" placeholder="Enter Student number">
+  </div>
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" class="form-control" id="name" name="name" placeholder="Enter Name">
+  </div>
+  <div class="form-group">
+    <label for="phone">Contact</label>
+    <input type="text" class="form-control" id="phone" name="phone" placeholder="Enter mobile number">
+  </div>
+  <div class="form-group">
+    <label for="address">Address</label>
+    <input type="text" class="form-control" id="address" name="address" placeholder="Enter Address">
+  </div>
+  <div class="form-group">
+    <label for="email">Email address</label>
+    <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="Enter email" style="margin-bottom: 30px;">
+  </div>
+  <button type="submit">ADD</button>
+  <button type="submit" formaction="/moderator_section" formmethod="get">Back</button>
+  </form>
+     </div>
+	</div>
+</div>
+</body>
+</html>

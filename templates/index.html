@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login Form</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static',filename='css/style.css') }}"
+    />
+  </head>
+  <style>
+    .login {
+      width: 380px;
+      overflow: hidden;
+      margin: auto;
+      margin: 20 0 0 450px;
+      padding: 80px;
+      background: #1d3557;
+      border-radius: 15px;
+      text-align: center;
+    }
+    h2 {
+      text-align: center;
+      color: #277582;
+      padding: 100px 0 20px 5px;
+    }
+    label {
+      color: #f1faee;
+      font-size: 17px;
+      text-align: start;
+    }
+
+    #username {
+      margin-top: 10px;
+      width: 300px;
+      height: 30px;
+      border: none;
+      border-radius: 10px;
+      padding-left: 8px;
+    }
+    #password {
+      margin-top: 10px;
+      width: 300px;
+      height: 30px;
+      border: none;
+      border-radius: 10px;
+      padding-left: 8px;
+    }
+    #submit {
+      margin: auto;
+      width: 30%;
+      height: 30px;
+      border: none;
+      border-radius: 40px;
+      padding-left: 7px;
+      color: #1d3557;
+      font-weight: bold;
+      float: none;
+    }
+    span {
+      color: white;
+      font-size: 17px;
+    }
+    a {
+      float: right;
+      background-color: grey;
+    }
+
+    alert alert-danger alert-dismissible {
+      padding: 20px;
+      background-color: #f44336; /* Red */
+      color: white;
+      margin-bottom: 15px;
+    }
+  </style>
+  <body>
+    {% if status=="error" %}
+    <div class="alert alert-danger alert-dismissible">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close"
+        >&times;</a
+      >
+      <strong>Warning!</strong> Incorrect Username or Password.
+    </div>
+    {% elif status=="Moderator" or status=="Admin" %}
+    <div class="alert alert-success">
+      <strong>Success!</strong> <strong>{{status}} </strong>>logged in
+      succesfully.
+    </div>
+    {% endif %}
+
+    <h2>Login Page</h2>
+    <br />
+    <div class="login">
+      <form method="post" action="/">
+        <label><b>Username</b> </label>
+        <input
+          type="text"
+          name="username"
+          id="username"
+          placeholder="Username"
+          required
+        />
+        <br /><br />
+        <label><b>Password </b> </label>
+        <input
+          type="Password"
+          name="password"
+          id="password"
+          placeholder="Password"
+          required
+        />
+        <br /><br /><br />
+        <input type="submit" name="submit" id="submit" value="Login" />
+        <br /><br />
+      </form>
+    </div>
+  </body>
+</html>

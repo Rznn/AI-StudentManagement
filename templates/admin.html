@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css') }}"> 
+
+	<title></title>
+<style>
+.mod_box{
+	  width: 380px;
+      overflow: hidden;
+      margin: auto;
+      margin: 20 0 0 450px;
+      padding: 60px 80px 60px 80px;
+      background: #213555;
+      border-radius: 15px;
+      text-align: center;
+}
+h2{
+	margin-top: 100px;
+	text-align: center;
+}
+
+button{
+	height: 30px;
+	width: 200px;
+}
+
+</style>	
+</head>
+<body>
+
+<nav class="navbar">
+	<div class="logout" style="text-align: end; padding: 20px;">
+		<form action="/" method="get">
+		<button type="submit" style="border-radius: 20px;" formaction="/">LOGOUT</button>
+		</form>
+	</div>
+</nav>
+<div class="container">
+	<h2>Admin Section</h2>
+	<div class="row">
+		<div class="col-md-3"></div>
+		<div class="col-md-6">
+			<div class="mod_box">
+				<div class="row">
+					<div class="col-md-6">
+						<form action="/" method="get">
+						<button type="submit" style="border-radius: 20px;" formaction="/add_moderator">ADD MODERATOR</button>
+						</form>
+					</div>
+					<br>
+					<br>
+					<div class="col-md-6">
+						<form action="/viewmoddata" method="get">
+						<button type="submit" style="border-radius: 20px;">VIEW MODERATOR</button>
+						</form>
+					</div>
+				</div>			
+			</div>
+			
+		</div>
+		<div class="col-md-3">
+
+		</div>
+	</div>
+	
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css') }}"> 
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+	<title></title>
+<style>
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #F5EFE7;
+	font-family: "Courier New", Courier, monospace;
+  }
+h4{
+  margin-top: 70px;
+  margin-bottom: 20px;
+}
+
+label{
+  margin: 10px;
+}
+
+alert alert-danger alert-dismissible {
+  padding: 20px;
+  background-color: #f44336; /* Red */
+  color: white;
+  margin-bottom: 15px;
+}
+alert alert-success {
+  padding: 20px;
+  background-color: "green"; /* Red */
+  color: white;
+  margin-bottom: 15px;
+}
+
+button{
+  background-color: white;
+  width: 150px;
+  height: 30px;
+  border: 1px solid #D8C4B6;
+  border-radius: 10px;
+}
+
+</style>	
+</head>
+<body>
+
+  <div class="container">
+    {% if msg=="error" %}
+    <div class="alert alert-danger alert-dismissible">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <strong>Warning!</strong> This ID is already taken , Enter a Unique ID.
+</div>
+{% elif msg=="no-data" %}
+    <div class="alert alert-danger alert-dismissible">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <strong>Warning!</strong> Please enter a username.
+</div>
+  {% elif msg=="success"%}
+    <div class="alert alert-success">
+<strong>Success!</strong> New Moderator has been added.
+</div>
+  {% endif %}
+  <h4>ADD MODERATOR</h4>
+<div class="row">
+  <div class="col-6">
+    <form action="#" method="post">
+<div class="form-group">
+  <label for="id">User Name</label>
+  <input type="text" class="form-control" id="id" name="id" placeholder="Enter User Name">
+  <label for="name">Name</label>
+  <input type="text" class="form-control" id="name" name="name" placeholder="Enter name">
+</divx=request.form["Uname"]>
+  <div class="form-group">
+  <label for="password">Password</label>
+  <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+</div>
+<div class="form-group">
+  <label for="email">Email address</label>
+  <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email">
+</div>
+<div class="form-group">
+  <label for="phone">Phone number</label>
+  <input type="text" class="form-control" name="phone" id="phone"  placeholder="Enter phone number">
+</div>
+<br>
+<button type="submit">ADD</button>
+<button type="submit" formaction="{{url_for('admin')}}" formmethod="get">Back</button>
+</form>
+   </div>
+</div>
+  </div>
+ 
+</body>
+</html>

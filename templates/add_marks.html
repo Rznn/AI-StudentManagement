@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+	<title>Add/Update marks</title>
+<style>
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #F5EFE7;
+	font-family: "Courier New", Courier, monospace;
+  }
+h4{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+label{
+  margin: 10px;
+}
+
+.container{
+  padding-left: 40px;
+  padding-top: 40px;
+}
+
+button{
+  background-color: white;
+  width: 150px;
+  height: 30px;
+  border: 1px solid #D8C4B6;
+  border-radius: 10px;
+}
+</style>	
+</head>
+<body>
+  <div class="container">
+    {% if status=="error" %}
+    <div class="alert alert-danger alert-dismissible">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <strong>Warning!</strong>   An error occured, please try again.
+</div>
+  {% elif status=="added"%}
+    <div class="alert alert-success">
+<strong>Success!</strong> Marks have been added.
+</div>
+{% elif status=="updated"%}
+    <div class="alert alert-success">
+<strong>Success!</strong> Marks have been updated.
+</div>
+  {% endif %}
+
+
+
+<form action="/add_marks" method="POST">
+<select name="usnno" class="custom-select custom-select-lg mb-3" style="width: 25%; margin-top: 50px;"  >
+<option disabled selected>Select Student</option>
+{% for j in range(lenght) %}
+  <option>{{data[j][0]}}</option>
+{% endfor %}
+
+</select>
+
+
+
+<div class="form-group">
+  <label for="internal">Internal Marks</label>
+  <input type="number" min="0" class="form-control" name="internal" placeholder="Enter Internal Marks%" value="">
+
+  <label for="external">External Marks</label>
+  <input type="number" min="0" class="form-control" name="external" placeholder="Enter External Marks%">
+  
+  <label for="attendance">Attendance</label>
+  <input type="number" min="0" class="form-control" name="attendance" placeholder="Enter Attendance% ( Calculated as (classes_attended/total_classes) x 100)" style="margin-bottom: 30px;">
+  
+</div>
+<form>
+<button type="submit" formaction="/add_marks" formmethod="POST">ADD</button>
+<button type="submit" formaction="/update" formmethod="POST">UPDATE</button>
+<button type="submit" formaction="/moderator_section" formmethod="get">BACK</button>
+</form>
+   </div>
+</div>
+  </div>
+</body>
+</html>
