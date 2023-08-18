@@ -8,7 +8,7 @@ The system was build using **Flask**
 
 ## Launch
 > run start.bat 
->>*Python packages and launches the browser on address http://127.0.0.1:5000*
+>*Python packages and launches the browser on address http://127.0.0.1:5000*
 
 ## Test Admin
 Username: *admin* <br>
