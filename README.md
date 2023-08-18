@@ -1,21 +1,16 @@
-# Fuzzy logic-based student management system
+# Fuzzy Logic
 
-The main purposes of assessment and evaluation are to evaluate the academic performance of students and to enhance their learning. The performance of students is evaluated using a range of conventional techniques. The conventional computation system, however, has many flaws. A number of strategies can be looked into, employed, and included in order to develop an efficient student performance analysis system. For instance, fuzzy logic, a method for adding human-like thought processes to a control system. This approach takes into account students' attendance, which is also thought to be a crucial grading factor. The fuzzy logic approach enables the user to incorporate subjectivity and uncertainty in the values if they so choose.
+The primary objectives of assessment and evaluation involve appraising students' academic achievements and enriching their educational experience. Various conventional methods are utilized to assess students' performance. Nevertheless, the traditional calculation system is fraught with several drawbacks. Several techniques can be explored, utilized, and integrated to create an effective system for analyzing student performance. As an example, fuzzy logic, a technique that mimics human-like cognitive processes in a control system. This methodology considers factors like student attendance, which is deemed pivotal in grading. The application of fuzzy logic empowers users to introduce subjectivity and ambiguity into values, if desired.
 
 ## Installation
 
 The system was build using **Flask**
 
-### On windows
+## Launch
 > run start.bat 
->>*This script installs the necessary python packages and launches the browser on address http://127.0.0.1:5000*
+>>*Python packages and launches the browser on address http://127.0.0.1:5000*
 
-### On linux
-> run ./start.sh
-
-
+## Test Admin
 Username: *admin* <br>
 Password: *admin*
-
-Use the above credentials to add moderators to the system then login using their credentials
 
