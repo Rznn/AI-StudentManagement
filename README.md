@@ -7,7 +7,7 @@ The primary objectives of assessment and evaluation involve appraising students'
 The system was build using **Flask**
 
 ## Launch
-> run start.bat 
+> run start.bat <br>
 >*Python packages and launches the browser on address http://127.0.0.1:5000*
 
 ## Test Admin
